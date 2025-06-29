@@ -1,3 +1,3 @@
 # Wiki
 
-* [Soft](soft/REAMDE.MD)
+* [Soft](soft/README.MD)
