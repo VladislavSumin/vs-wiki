@@ -23,3 +23,5 @@ $XDG_CONFIG_HOME/skhd/skhdrc
 $HOME/.config/skhd/skhdrc
 $HOME/.skhdrc
 ```
+
+[Моя конфигурация](../../home/.config/skhd/skhdrc)
