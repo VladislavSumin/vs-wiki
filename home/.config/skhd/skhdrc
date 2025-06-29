@@ -13,4 +13,8 @@ alt - 5 : yabai -m space --focus 5
 alt - 6 : yabai -m space --focus 6
 alt - 7 : yabai -m space --focus 7
 
+# -- Start/Stop yabai
+ctrl + alt + cmd - w : yabai --start-service
+ctrl + alt + cmd - q : yabai --stop-service
+
 # ---------------------------------------- #
