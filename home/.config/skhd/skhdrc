@@ -13,6 +13,9 @@ alt - 5 : yabai -m space --focus 5
 alt - 6 : yabai -m space --focus 6
 alt - 7 : yabai -m space --focus 7
 
+# Toggle window floating
+ctrl + alt + cmd - space : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
 # -- Start/Stop yabai
 ctrl + alt + cmd - w : yabai --start-service
 ctrl + alt + cmd - q : yabai --stop-service
