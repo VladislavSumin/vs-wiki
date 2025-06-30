@@ -31,4 +31,4 @@ yabai -m config window_shadow off
 
 # Disable management for some apps
 yabai -m rule --add app="^System Settings$" manage=off
-# yabai -m rule --add app="^Системные настройки$" manage=off
+yabai -m rule --add app="^Системные настройки$" manage=off
