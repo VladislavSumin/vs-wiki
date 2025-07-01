@@ -24,4 +24,6 @@ fi
 
 if [ -n "$window_id" ]; then
     yabai -m window --focus "$window_id"
+else
+    exit 1
 fi
