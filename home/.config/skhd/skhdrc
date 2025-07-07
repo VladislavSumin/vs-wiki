@@ -17,7 +17,7 @@ alt - 7 : yabai -m space --focus 7
 ctrl + alt + cmd - space : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 # Focus popular apps
-alt - w : ~/.config/skhd/yabai_focus_window.sh "IntelliJ"
+alt - w : ~/.config/skhd/yabai_focus_window.sh "IntelliJ" || ~/.config/skhd/yabai_focus_window.sh "Android Studio"
 alt - a : ~/.config/skhd/yabai_focus_window.sh "Google Chrome" "\\(Vladislav\\)" || ~/.config/skhd/yabai_focus_window.sh "Yandex"
 alt - s : ~/.config/skhd/yabai_focus_window.sh "Google Chrome" "\\(vpn\\)"
 
