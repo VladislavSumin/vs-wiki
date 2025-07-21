@@ -4,6 +4,12 @@
 
 * [git](https://github.com/koekeishiya/yabai)
 
+## Полезные команды
+Получить список всех окон
+```shell
+yabai -m query --windows
+```
+
 ## Отключение защиты ядра
 
 [wiki](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection)
