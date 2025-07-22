@@ -1,0 +1,11 @@
+---
+- name: "{{ item }}: Disable ipv6"
+  community.routeros.api_modify:
+    path: "ipv6 settings"
+    data:
+      - disable-ipv6: yes
+- name: "{{ item }}: Disable ipv6 forwarding"
+  community.routeros.api_modify:
+    path: "ipv6 settings"
+    data:
+      - forward: no

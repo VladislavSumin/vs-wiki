@@ -1,0 +1,7 @@
+---
+
+- name: "{{ item.host }}: Set identity"
+  community.routeros.api_modify:
+    path: "system identity"
+    data:
+      - name: "{{ item }}"

@@ -1,0 +1,43 @@
+---
+- name: "{{ item }}: Disable api-ssl"
+  community.routeros.api_find_and_modify:
+    path: "ip service"
+    find:
+      name: api-ssl
+    values:
+      disabled: yes
+- name: "{{ item }}: Disable ftp"
+  community.routeros.api_find_and_modify:
+    path: "ip service"
+    find:
+      name: ftp
+    values:
+      disabled: yes
+- name: "{{ item }}: Disable telnet"
+  community.routeros.api_find_and_modify:
+    path: "ip service"
+    find:
+      name: telnet
+    values:
+      disabled: yes
+- name: "{{ item }}: Disable www"
+  community.routeros.api_find_and_modify:
+    path: "ip service"
+    find:
+      name: www
+    values:
+      disabled: yes
+- name: "{{ item }}: Disable www-ssl"
+  community.routeros.api_find_and_modify:
+    path: "ip service"
+    find:
+      name: www-ssl
+    values:
+      disabled: yes
+- name: "{{ item }}: Disable ssh"
+  community.routeros.api_find_and_modify:
+    path: "ip service"
+    find:
+      name: ssh
+    values:
+      disabled: no

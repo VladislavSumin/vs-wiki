@@ -1,0 +1,21 @@
+---
+- name: "{{ item }}: Disable mac server"
+  community.routeros.api_modify:
+    path: "tool mac-server"
+    data:
+      - allowed-interface-list: none
+- name: "{{ item }}: Disable mac winbox server"
+  community.routeros.api_modify:
+    path: "tool mac-server mac-winbox"
+    data:
+      - allowed-interface-list: none
+- name: "{{ item }}: Disable mac ping server"
+  community.routeros.api_modify:
+    path: "tool mac-server ping"
+    data:
+      - enabled: no
+- name: "{{ item }}: Disable discovery"
+  community.routeros.api_modify:
+    path: "ip neighbor discovery-settings"
+    data:
+      - discover-interface-list: none

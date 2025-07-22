@@ -1,0 +1,8 @@
+- block:
+    - include_tasks: ospf-default.yml
+      loop: "{{ MIKROTIK_SETTINGS }}"
+  module_defaults:
+    group/community.routeros.api:
+      password: "{{ MIKROTIK_PASSWORD }}"
+      username: "{{ MIKROTIK_USERNAME }}"
+      hostname: "{{ item.host }}"

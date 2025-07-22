@@ -1,0 +1,15 @@
+---
+
+- name: "{{ item.host }}: Set routes for loopback protection"
+  community.routeros.api_modify:
+    path: "ip route"
+    data:
+      - dst-address: "10.0.0.0/8"
+        gateway: "lo"
+        comment: "local ip loopback protection"
+      - dst-address: "172.16.0.0/16"
+        gateway: "lo"
+        comment: "local ip loopback protection"
+      - dst-address: "192.168.0.0/16"
+        gateway: "lo"
+        comment: "local ip loopback protection"

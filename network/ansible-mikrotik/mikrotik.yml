@@ -1,0 +1,91 @@
+# Сохраняем пароль от микротиков в локальную переменную на localhost
+- name: Set mikrotik username && password
+  hosts: localhost
+  vars_prompt:
+    - name: MIKROTIK_PASSWORD
+      private: true
+  tasks:
+    - set_fact:
+        MIKROTIK_USERNAME: "admin"
+        MIKROTIK_PASSWORD: "{{ MIKROTIK_PASSWORD }}"
+
+# Синхронизируем стандартные для всех микротиков настройки
+- name: Mikrotik default
+  gather_facts: no
+  hosts: localhost
+  vars:
+    MIKROTIK_HOSTS:
+      - "sw1.home1.vs"
+#      - "sw2.home1.vs"
+      - "sw1.dacha.vs"
+      - "ap1.dacha.vs"
+      - "sw1.home2.vs"
+      - "sw1.hl.vs"
+    MIKROTIK_DNS:
+      # Routers
+      - name: "sw1.home1.vs"
+        address: "10.0.0.1"
+      - name: "sw2.home1.vs"
+        address: "10.0.0.4"
+      - name: "sw1.dacha.vs"
+        address: "10.0.1.1"
+      - name: "ap1.dacha.vs"
+        address: "10.0.1.2"
+      - name: "sw1.home2.vs"
+        address: "10.29.0.1"
+      - name: "sw2.home2.vs"
+        address: "10.29.0.2"
+      - name: "sw1.hl.vs"
+        address: "10.30.10.1"
+
+      # Hosts
+      - name: "pve1.hl.vs"
+        address: "10.30.10.10"
+      - name: "pve2.hl.vs"
+        address: "10.30.10.11"
+      - name: "qnap.hl.vs"
+        address: "10.30.10.20"
+      - name: "ca.vs"
+        address: "10.30.10.21"
+      - name: "ha.home2.vs"
+        address: "10.30.10.22"
+      - name: "docker1.hl.vs"
+        address: "10.30.11.10"
+      - name: "frigate.hl.vs"
+        address: "10.30.11.11"
+      - name: "influxdb.hl.vs"
+        address: "10.30.11.12"
+      - name: "grafana.hl.vs"
+        address: "10.30.11.13"
+      - name: "neolink.hl.vs"
+        address: "10.30.11.14"
+
+      # Cams
+      - name: "lift.camera.home1.vs"
+        address: "10.10.2.2"
+      - name: "mangal.camera.dacha.vs"
+        address: "10.10.5.3"
+      - name: "car.camera.dacha.vs"
+        address: "10.10.5.4"
+      - name: "tualet.camera.dacha.vs"
+        address: "10.10.5.5"
+  roles:
+    - mikrotik-identity
+    - mikrotik-dns-sync
+    - mikrotik-default-security
+#    - mikrotik-loopback-protection может ломать некоторые конфиги TODO доработать
+
+# Синхронизируем настройки микротиков участвующих в OSPF маршрутизации
+- name: Mikrotik OSPF
+  gather_facts: no
+  hosts: localhost
+  vars:
+    MIKROTIK_SETTINGS:
+      - host: "sw1.home1.vs"
+        ospf_id: "10.255.255.1"
+      - host: "sw1.home2.vs"
+        ospf_id: "172.16.29.255"
+      - host: "sw1.hl.vs"
+        ospf_id: "172.16.30.255"
+  roles:
+    - mikrotik-default-ospf
