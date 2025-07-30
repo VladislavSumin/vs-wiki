@@ -1,0 +1,8 @@
+- block:
+    - include_tasks: dns-default.yml
+      loop: "{{ MIKROTIK_HOSTS }}"
+  module_defaults:
+    group/community.routeros.api:
+      password: "{{ MIKROTIK_PASSWORD }}"
+      username: "{{ MIKROTIK_USERNAME }}"
+      hostname: "{{ item }}"

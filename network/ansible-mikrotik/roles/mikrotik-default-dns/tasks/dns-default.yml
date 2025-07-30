@@ -1,0 +1,7 @@
+---
+
+- name: "{{ item.host }}: Enable local request for dns server"
+  community.routeros.api_modify:
+    path: "ip dns"
+    data:
+      - allow-remote-requests: "yes"
