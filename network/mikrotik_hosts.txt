@@ -1,0 +1,6 @@
+admin@sw1.home1.vs
+admin@sw1.dacha.vs
+admin@sw2.dacha.vs
+admin@ap1.dacha.vs
+admin@sw1.home2.vs
+admin@sw1.hl.vs
