@@ -16,8 +16,9 @@
   vars:
     MIKROTIK_HOSTS:
       - "sw1.home1.vs"
-#      - "sw2.home1.vs"
+      - "sw2.home1.vs"
       - "sw1.dacha.vs"
+      - "sw2.dacha.vs"
       - "ap1.dacha.vs"
       - "sw1.home2.vs"
       - "sw1.hl.vs"
@@ -27,14 +28,19 @@
         address: "10.0.0.1"
       - name: "sw2.home1.vs"
         address: "10.0.0.4"
+
       - name: "sw1.dacha.vs"
-        address: "10.0.1.1"
+        address: "10.27.0.1"
+      - name: "sw2.dacha.vs"
+        address: "10.27.0.2"
       - name: "ap1.dacha.vs"
-        address: "10.0.1.2"
+        address: "10.27.0.3"
+
       - name: "sw1.home2.vs"
         address: "10.29.0.1"
       - name: "sw2.home2.vs"
         address: "10.29.0.2"
+
       - name: "sw1.hl.vs"
         address: "10.30.10.1"
 
@@ -72,6 +78,7 @@
   roles:
     - mikrotik-identity
     - mikrotik-dns-sync
+    - mikrotik-default-dns
     - mikrotik-default-security
 #    - mikrotik-loopback-protection может ломать некоторые конфиги TODO доработать
 
@@ -83,6 +90,8 @@
     MIKROTIK_SETTINGS:
       - host: "sw1.home1.vs"
         ospf_id: "10.255.255.1"
+      - host: "sw1.dacha.vs"
+        ospf_id: "172.16.27.255"
       - host: "sw1.home2.vs"
         ospf_id: "172.16.29.255"
       - host: "sw1.hl.vs"
